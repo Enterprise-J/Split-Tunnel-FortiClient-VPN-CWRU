@@ -182,7 +182,7 @@ _vpn_monitor() {
             ping -c 1 -W 2 "$KEEPALIVE_IP" >/dev/null 2>&1 &
         fi
         if ! ifconfig | grep -q "$TARGET_IP"; then
-            osascript -e 'display alert "CWRU VPN" message "VPN Connection Dropped." as critical' >/dev/null 2>&1 &
+            osascript -e 'display alert "CWRU VPN" message "VPN Connection Dropped." as critical' >/dev/null 2>&1
             _mon_cleanup
             trap - EXIT
             dvpn --drop
